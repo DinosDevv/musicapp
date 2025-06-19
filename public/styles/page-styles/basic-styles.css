@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url('test-background.jpg');
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.custom-button{
+  background-color: #f97316;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #f97316 ;
+  color: black;
+  border: none;
+  transition: 0.5s;
+  width: 300px;
+  height: 40px;
+
+}
+.custom-button:hover{
+  background-color: #ff5500;
+  opacity: 0.5;
+  cursor: pointer;
+}

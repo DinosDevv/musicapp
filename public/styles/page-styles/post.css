@@ -1,0 +1,42 @@
+body {
+  background-color: #0f0f0f;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.upload-post {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(255, 115, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.inputs input,
+.inputs textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.inputs input[type="submit"] {
+  background-color: #f97316;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.inputs input[type="submit"]:hover {
+  background-color: #ea580c;
+}

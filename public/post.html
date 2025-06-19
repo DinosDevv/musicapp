@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POST</title>
+  <link rel="stylesheet" href="styles/page-styles/basic-styles.css">
+  <link rel="stylesheet" href="styles/page-styles/post.css">
+</head>
+<body>
+  <form action="/submit-post" method="POST">
+    <div class="upload-post">
+      <div class="inputs">
+        <input type="text" name="title" placeholder="Title" required />
+        <br />
+        <textarea name="content" placeholder="Content" required></textarea>
+        <br />
+        <input type="text" name="tags" placeholder="Tags (comma-separated)" required />
+        <br />
+        <input type="submit" value="POST" />
+      </div>
+    </div>
+  </form>
+</body>
+</html>
