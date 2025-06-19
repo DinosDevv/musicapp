@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover News</title>
+  <link rel="stylesheet" href="/styles/page-styles/basic-styles.css" />
+  <link rel="stylesheet" href="/styles/page-styles/discover.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="news-container">
+    <% posts.forEach((post, index) => { %>
+      <div class="news-item" onclick="openModal(<%= index %>)">
+        <div class="content">
+          <img class="thumbnail" src="/images/test-user-banner.jpg" alt="thumbnail" />
+
+          <div class="text-content">
+            <div class="title">
+              <h1><%= post.title %></h1>
+            </div>
+
+            <div class="post-preview">
+              <%= post.content %>
+            </div>
+
+            <div class="tags">
+              <p>
+                <% post.tags.split(',').forEach(tag => { %>
+                  #<%= tag.trim() %>
+                <% }) %>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <% }) %>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-content"></p>
+      <p id="modal-tags" class="tags"></p>
+    </div>
+  </div>
+
+  <script>
+    const posts = <%- JSON.stringify(posts) %>;
+
+    function openModal(index) {
+      const post = posts[index];
+      document.getElementById("modal-title").textContent = post.title;
+      document.getElementById("modal-content").textContent = post.content;
+      document.getElementById("modal-tags").textContent = post.tags
+        .split(",")
+        .map(tag => "#" + tag.trim())
+        .join(" ");
+      document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Κλείσιμο με click έξω από το modal
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -7,7 +7,6 @@ const getPage = (filename) => path.join(__dirname, '..', 'public', filename)
 router.get('/', (req, res) => {
   res.sendFile(getPage('mainpage.html'))
 })
-
 router.get('/profile', (req, res) => {
   res.sendFile(getPage('profile.html'))
 })
