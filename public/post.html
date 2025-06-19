@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>POST</title>
-  <link rel="stylesheet" href="styles/page-styles/basic-styles.css">
-  <link rel="stylesheet" href="styles/page-styles/post.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit a Post</title>
+  <link rel="stylesheet" href="styles/page-styles/basic-styles.css" />
+  <link rel="stylesheet" href="styles/page-styles/post.css" />
 </head>
 <body>
-  <form action="/submit-post" method="POST">
-    <div class="upload-post">
-      <div class="inputs">
-        <input type="text" name="title" placeholder="Title" required />
-        <br />
-        <textarea name="content" placeholder="Content" required></textarea>
-        <br />
-        <input type="text" name="tags" placeholder="Tags (comma-separated)" required />
-        <br />
-        <input type="submit" value="POST" />
-      </div>
-    </div>
-  </form>
+  <div class="post-container">
+    <form class="post-form" action="/submit-post" method="POST" enctype="multipart/form-data">
+      <h1>📝 Create Post</h1>
+
+      <input type="text" name="title" placeholder="Title" required />
+      <textarea name="content" placeholder="Content..." rows="5" required></textarea>
+      <input type="text" name="tags" placeholder="#tags split with commas (,)" />
+
+      <label for="image">Image:</label>
+      <input type="file" name="image" id="image" accept="image/*" />
+
+      <input type="submit" value="Upload" />
+    </form>
+  </div>
 </body>
 </html>

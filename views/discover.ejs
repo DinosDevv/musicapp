@@ -15,12 +15,19 @@
     <% posts.forEach((post, index) => { %>
       <div class="news-item" onclick="openModal(<%= index %>)">
         <div class="content">
-          <img class="thumbnail" src="/images/test-user-banner.jpg" alt="thumbnail" />
+
+          <% if (post.image) { %>
+            <img class="thumbnail" src="<%= post.image %>" alt="thumbnail" />
+          <% } else { %>
+            <img class="thumbnail" src="/images/default.jpg" alt="thumbnail" />
+          <% } %>
 
           <div class="text-content">
             <div class="title">
               <h1><%= post.title %></h1>
             </div>
+
+            <p class="timestamp"><%= post.formattedDate %></p>
 
             <div class="post-preview">
               <%= post.content %>
@@ -35,7 +42,7 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
     <% }) %>
   </div>
 
@@ -67,7 +74,6 @@
       document.getElementById("modal").style.display = "none";
     }
 
-    // Κλείσιμο με click έξω από το modal
     window.onclick = function(event) {
       const modal = document.getElementById("modal");
       if (event.target == modal) {
